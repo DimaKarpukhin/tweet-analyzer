@@ -1,4 +1,4 @@
-package com.handson.twitter.config;
+package com.handson.twitter.configs;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;

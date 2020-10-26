@@ -1,4 +1,4 @@
-package com.handson.twitter.config;
+package com.handson.twitter.configs;
 
 import java.util.Collections;
 import java.util.HashMap;

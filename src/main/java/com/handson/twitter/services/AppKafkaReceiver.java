@@ -1,4 +1,4 @@
-package com.handson.twitter.kafka;
+package com.handson.twitter.services;
 
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
@@ -8,7 +8,6 @@ import reactor.core.publisher.EmitterProcessor;
 import reactor.core.publisher.Flux;
 import reactor.core.scheduler.Scheduler;
 import reactor.core.scheduler.Schedulers;
-import reactor.kafka.receiver.KafkaReceiver;
 import reactor.kafka.receiver.ReceiverOptions;
 import reactor.kafka.receiver.ReceiverRecord;
 
@@ -22,7 +21,7 @@ public class AppKafkaReceiver {
     public static final String FINISH_PROCESSING = "FINISH_PROCESSING";
     EmitterProcessor<String> emitterProcessor;
     Disposable d;
-    public KafkaReceiver<String,String> simpleConsumer(String topic) {
+    public reactor.kafka.receiver.KafkaReceiver<String,String> simpleConsumer(String topic) {
         Map<String, Object> consumerProps = new HashMap<>();
         consumerProps.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9095");
         consumerProps.put(ConsumerConfig.GROUP_ID_CONFIG, "sample-group");
@@ -32,7 +31,7 @@ public class AppKafkaReceiver {
                 .commitInterval(Duration.ZERO)
                 .commitBatchSize(0)
                 .subscription(Collections.singleton(topic));
-        KafkaReceiver<String,String> receiver =   KafkaReceiver.create(receiverOptions);
+        reactor.kafka.receiver.KafkaReceiver<String,String> receiver =   reactor.kafka.receiver.KafkaReceiver.create(receiverOptions);
         return receiver;
     }
     public  Flux<String> listen(String topic) {

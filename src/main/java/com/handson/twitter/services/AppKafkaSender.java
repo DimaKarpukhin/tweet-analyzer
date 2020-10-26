@@ -1,4 +1,4 @@
-package com.handson.twitter.kafka;
+package com.handson.twitter.services;
 
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,7 +1,7 @@
 package com.handson.twitter;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.handson.twitter.config.KafkaEmbeddedConfig;
+import com.handson.twitter.configs.KafkaEmbeddedConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;

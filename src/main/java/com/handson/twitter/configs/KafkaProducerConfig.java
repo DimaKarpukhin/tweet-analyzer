@@ -1,4 +1,4 @@
-package com.handson.twitter.config;
+package com.handson.twitter.configs;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -32,8 +32,6 @@ public class KafkaProducerConfig {
         configs.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, kafkaProperties.getBootstrapServers());
         configs.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
         configs.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
-//        configs.put(ProducerConfig., StringSerializer.class);
-
         SenderOptions<String,String> senderOptions =  SenderOptions.<String,String>create(configs).maxInFlight(1024);
         return KafkaSender.create(senderOptions);
     }

@@ -13,11 +13,11 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.stream.Collectors;
 
-public class AppSentiment {
+public class SentimentAnalyzer {
     StanfordCoreNLP pipeline;
     Map<String, Double> sentimentValues = new HashMap<>();
 
-    public AppSentiment() {
+    public SentimentAnalyzer() {
         Properties pipelineProps = new Properties();
         pipelineProps.put("annotators", "tokenize, ssplit, parse, sentiment");
         pipeline = new StanfordCoreNLP(pipelineProps);
